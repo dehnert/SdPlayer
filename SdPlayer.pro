@@ -6,6 +6,9 @@
 
 QT       += core gui
 
+# Required on Qt5+ - https://stackoverflow.com/a/9112452/1797496
+QT       += widgets
+
 TARGET = SdPlayer
 TEMPLATE = app
 
