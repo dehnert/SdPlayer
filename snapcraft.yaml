@@ -1,0 +1,87 @@
+name: sdplayer
+version: '2.00.1'
+grade: stable
+title: Square dance tape group music player
+summary: foo
+description: SdPlayer gives you all the features you need for playing music at your tape group. Unlike Wplayer, SdPlayer does not need WinAmp. SdPlayer simplifies playlist management because no tape group files are needed to remember where you left off in the playlist. SdPlayer gives you a tape counter, rewind to zero, tip timer with sound, music looping for callers, and user configurable keyboard shortcut keys. It adds playback speed control and a separate tip timer sound volume control. And SdPlayer is available for both Windows and Linux. It is also OPEN SOURCE, so you can download the source code if desired.
+
+confinement: strict
+base: core18
+
+apps:
+  sdplayer:
+    #common-id: org.kde.kcalc.desktop
+    command: SdPlayer
+    environment:
+      ALSA_CONFIG_PATH: /snap/$SNAPCRAFT_PROJECT_NAME/current/usr/share/alsa
+    extensions:
+      - kde-neon
+    plugs:
+      - kde-frameworks-5-plug
+      - home
+      - opengl
+      - network
+      - network-bind
+      - audio-playback
+
+parts:
+  # From https://forum.snapcraft.io/t/reusable-alsa-lib-part/3556
+  alsa-lib:
+    plugin: autotools
+    source: ftp://ftp.alsa-project.org/pub/lib/alsa-lib-1.1.5.tar.bz2
+    configflags:
+      - --prefix=/usr
+      - --sysconfdir=/etc
+      - --libexec=/usr/lib
+      - --libdir=/usr/lib
+      - --localstatedir=/var
+      - --with-configdir=/snap/$SNAPCRAFT_PROJECT_NAME/current/usr/share/alsa
+      - --with-plugindir=/snap/$SNAPCRAFT_PROJECT_NAME/current/usr/lib/alsa-lib
+      - --disable-static
+    stage:
+      - usr/include
+      - usr/lib
+    prime:
+      - -usr/bin
+      - -usr/include
+      - -usr/lib/pkgconfig
+      - -usr/share/alsa/alsa.conf
+      - -usr/share/alsa/pcm
+      - -usr/share/alsa/topology/broadwell
+
+  sdplayer:
+#    parse-info:
+#      - usr/share/metainfo/org.kde.kcalc.appdata.xml
+    build-snaps:
+      - kde-frameworks-5-core18-sdk
+      - kde-frameworks-5-core18
+    plugin: qmake
+    build-packages:
+      - libvlc-dev
+      - vlc-plugin-base
+    #source: https://www.krubow.com/Downloads/SdPlayerSrc200.zip
+    source: .
+    override-build: |
+            snapcraftctl build
+            mkdir -p ../install/usr/bin/
+            cp SdPlayer ../install/usr/bin/
+    stage:
+      - usr/bin/SdPlayer
+    after:
+      - alsa-lib
+
+  runtime-deps:
+    plugin: nil
+    stage-packages:
+      # I would have expected this to work fine if combined with the sdplayer
+      # part above, but in fact, that seems to crash after playing the first
+      # track. My guess is that kde-frameworks-5-core18{,-sdk} includes VLC
+      # for the build, so snapcraft doesn't realize that these are trying to
+      # add it for runtime (stage) too. By splitting into another part that
+      # doesn't use the framework, it's obvious that these are new files.
+      - libvlc5
+      - vlc-plugin-base
+      - vlc-plugin-jack
+      # It seems to work fine without this, but it shows a warning while
+      # building the snap, so add it.
+      - libslang2
