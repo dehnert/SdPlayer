@@ -1,0 +1,581 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+      "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+  <title>SdPlayer</title>
+  <meta name="generator" content="Amaya, see http://www.w3.org/Amaya/">
+</head>
+
+<body>
+<h1 style="text-align:center;margin-left:auto;margin-right:auto;"><img
+alt="SdPlayer icon" src="Music.png" width="48" height="48">SdPlayer 2.00<img
+alt="SdPlayer icon" src="Music.png" width="48" height="48"></h1>
+
+<p style="text-align:center;margin-left:auto;margin-right:auto;">Users guide<br>
+by<br>
+Keith Rubow</p>
+<ul>
+  <li><a href="#L2458">Introduction</a></li>
+  <li><a href="#L2460">Installation</a> 
+    <ul>
+      <li><a href="#L2462">Windows</a></li>
+      <li><a href="#L2464">Linux</a></li>
+    </ul>
+  </li>
+  <li><a href="#L2466">Operation</a> 
+    <ul>
+      <li><a href="#L2468">Quick Overview</a></li>
+      <li><a href="#L2470">Menus</a> 
+        <ul>
+          <li><a href="#L2472">File</a></li>
+          <li><a href="#L2474">Edit</a></li>
+          <li><a href="#L2476">Help</a></li>
+        </ul>
+      </li>
+      <li><a href="#L761">Breaktimer</a></li>
+      <li><a href="#L2478">Loops</a></li>
+      <li><a href="#L2480">Options</a></li>
+      <li><a href="#L2482">Keyboard Shortcuts</a></li>
+    </ul>
+  </li>
+  <li><a href="#L712">Customizing Supported File Types</a></li>
+</ul>
+
+<h2><a name="L2458" id="L2458"></a>Introduction</h2>
+
+<p>SdPlayer is a music player for square dancers. It has all the features you
+need for running a workshop (a.k.a. "tape group"), or for playing music for
+calling. It is based in the open source VLC media player, so it plays just
+about any audio file format you can think of. Here is a summary of its major
+features:</p>
+<ul>
+  <li>Plays MP3 files, and other audio files (WAV, WMA, etc.) supported by VLC
+    on your operating system</li>
+  <li>Uses playlist files compatible with Winamp and most other media players
+    (M3U playlist format)</li>
+  <li>Tape counter with zero, rewind back to zero, history of previous zero
+    locations, and undo/redo</li>
+  <li>Resumes playback where you left off (last zero location) when playlist is
+    opened again</li>
+  <li>Tip timer (with sound) to let you know when tip is over, or when new
+    dancers should be rotated into square</li>
+  <li>Break timer to time the length of breaks</li>
+  <li>User configurable keyboard shortcuts for all major functions</li>
+  <li>Loop feature to loop a track, or selected portion of a track, ideal for
+    callers</li>
+  <li>Variable speed playback (changes tempo without changing pitch)</li>
+  <li>Windows and Linux versions available</li>
+  <li>Free and Open Source</li>
+</ul>
+
+<h2><a name="L2460" id="L2460"></a>Installation</h2>
+
+<h3><a name="L2462" id="L2462"></a>Windows</h3>
+
+<p>To make SdPlayer run on a Windows computer it is necessary to install three
+different items.</p>
+<ol>
+  <li>Install SdPlayer by running the installer SetupSdPlayer200.exe. You must
+    have administrative rightts on your computer when running this installer.
+    If you are an administrator, simply double-click the installer. If you are
+    not an administrator, then right-click the setup file and select "Run as
+    administrator" (for windows 7 or 8), or "Run as..." (for Windows XP). You
+    can usually just accept all the defaults during the installation process.
+    Your computer will beed to be rebooted after the installation. If you
+    cannot run the installer as an administrator, you can run it anyway, but
+    the path to libvlc will not be added to your system PATH environment
+    variable. This will need to be done manually, or SdPlayer will not function
+    properly.</li>
+  <li>Install the Qt runtile libraries if they are not already installed on
+    your computer. The runtime libraries are distributed as a file called
+    SetupQt4Lib.exe. Simply double-click this file to install the libraries (if
+    they are not already installed on your system).</li>
+  <li>Install the free and open source VLC Media Player if it is not already
+    installed on your computer. This can be installed by double-clicking the
+    vlc-2.1.2-win32.exe file. You can download the latest version of VLC from
+    <a href="http://www.videolan.org/">www.videolan.org</a>. The file version
+    number may differ as newer versions are released frequently.</li>
+</ol>
+
+<p>Important! SdPlayer needs to have a path to the VLC libraries added to your
+system PATH environment variable. This is done automatically if you run the
+SdPlayer installer as an administrator. If you cannot run the SdPlayer
+installer as an administrator, you will need to add this path manually. The
+path to the VLC libraries is the same folder where VLC was installed, usually
+C:\Program Files\VideoLAN\VLC (for Windows XP) or C:\Program Files
+(x86)\VideoLan\VLC (for Vista, Windows 7 or Windows 8). To manually modify the
+Windows PATH variable, right-click on My Computer and select Properties. Open
+the "Advanced" tab and click the "Environment Variables" button. Under "System
+variables" is a list of variables. Select the "Path" variable and click the
+"Edit" button. Then add the path to your VLC program to the end of the list of
+paths listed under "Variable value". Be sure to separate the newly added path
+from the other paths with a semicolon (";") character. For example, add your
+path to the existing paths as follows (new path highlighted in red):</p>
+
+<p>Was:</p>
+
+<p>%SystemRoot%\system32;%SystemRoot%;C:\any\other\paths</p>
+
+<p>Change to:</p>
+
+<p>%SystemRoot%\system32;%SystemRoot%;C:\any\other\paths<span
+style="color:#ff0000">;C:\Program Files\VideoLAN\VLC</span></p>
+
+<p>Note that the existing list of paths might be quite long. Just stick your
+path at the end, with a ";" separating it from the other paths. Be sure to
+replace C:\Program Files\VideoLAN\VLC in the example above with the actual path
+to the VLC player on your computer.</p>
+
+<p>Then reboot your computer to make the new path take effect.</p>
+
+<h3><a name="L2464" id="L2464"></a>Linux</h3>
+
+<p>SdPlayer is distributed as a Debian package file called
+sdplayer_v.vv_i386.deb, or as an RPM package called sdplayer-v.vv-p.i386.rpm,
+where v.vv is the program version number, and p is the package version number.
+Simply double-click the package file to install it, or open the package file
+with your package manager. The SdPlayer software is installed in
+/usr/share/sdplayer. A script file to launch SdPlayer is installed in /usr/bin.
+The initial default configuration "ini" file is installed in
+/usr/share/xdg/krubow, and any user configuration settings are saved in
+~/.config/krubow. An application menu entry is automatically created, typically
+under Sound and Video (or something similar). Your package manager will
+automatically install the required VLC library packages and Qt runtime
+libraries if these are not already installed on your system. Source files for
+SdPlayer are available as a zip file called SdPlayerv.vv.zip.</p>
+
+<p>SdPlayer may be ininstalled using your package manager.</p>
+
+<h2><a name="L2466" id="L2466"></a>Operation</h2>
+
+<h3><a name="L2468" id="L2468"></a>Quick Overview</h3>
+
+<p>When SdPlayer is launched, by default it will open the same playlist file
+that was open the last time it was closed, and will resume at the point where
+the last zero mark was set. SdPlayer also accepts the name of a sound file or a
+playlist file on the command line when it is launched. This means that if a
+file is dragged and dropped onto the Windows desktop shortcut for SdPlayer,
+SdPlayer will open that sound file or playlist. SdPlayer will also open a sound
+file or playlist file by double-clicking the file (if SdPlayer is set as the
+default application for that file type), or by selecting "Open with" from your
+file browser and selecting SdPlayer in Windows or Linux.</p>
+
+<p>The main SdPlayer window appears as shown.<img alt="main window"
+src="mainwindow.png" style="float: right" width="600" height="421"></p>
+
+<p>The title bar shows the name of the currently opened playlist file (if
+any).</p>
+
+<p>The menu bar gives access to the <a href="#L2472">File</a>, <a
+href="#L2474">Edit</a> and <a href="#L2476">Help</a> menus (described in detail
+below).</p>
+
+<p>The Title, Artist and Album fields display the Title, Artist and Album data
+from the ID3 tags of the current file.</p>
+
+<p>The Counter shows the position in the current file relative to the last
+place the counter was zeroed. Click on the counter to zero it (or use the Zero
+shortcut key). SdPlayer keeps a history of every zero mark you have set.
+Rewinding will return you to the most recent zero mark. Selecting Undo from the
+edit menu or shortcut key will return you to the previous zero mark. Repeated
+undo's will return you to earlier zero marks. Selecting Redo from the edit menu
+or shortcut key will return you to later zero marks (as long as no additional
+zero marks were set).</p>
+
+<p>The Seek Slider indicates the position in the currently playing file. Drag
+the slider to quickly seek forward or backward to a new position.</p>
+
+<p>The Buttons give you easy control of the media player. The buttons are (from
+left to right) previous track (|&lt;), rewind (&lt;&lt;), skip back (&lt;),
+play/pause (P), skip forward (&gt;), and next track (&gt;|). There are also
+user selectable shortcut keys for all of these functions (and more). See the
+section on <a href="#L2482">Keyboard Shortcuts</a> below for details.</p>
+
+<p>The Playlist shows the list of files to play. The current file is indicated
+with a speaker icon (<img alt="playing" src="sound.png" width="16"
+height="16">) if it is playing, or a mute icon (<img alt="mute"
+src="sound_mute.png" width="16" height="16">) if it is paused. Hovering the
+mouse over an entry lets you see the full file path in a pop-up tooltip. You
+may drag-and-drop files from your file browser to the playlist to add files.
+Drag-and-drop folders to add all the files in the folder to the playlist
+(including all nested folders). Note that drag-and-drop is the OLNY way to add
+files to the playlist. Drag-and-drop item(s) in the playlist to rearrange the
+order. To delete item(s) from the playlist, select them and hit the DEL key.
+Finally, double-clicking an item in the playlist causes that file to play. When
+selecting items in the playlist, the usual Ctrl and Shift key modifiers may be
+used.</p>
+
+<p>The Position field shows the current absolute position in the file, relative
+to the start of the file. This position (unlike the Counter) is always from the
+start of the file, and is not zeroed when you zero the counter.</p>
+
+<p>The Duration field shows the length of the currently playing file (in
+minutes and seconds).</p>
+
+<p>The Loop Mode checkbox indicates if the file should be played in loop mode.
+Loop mode will repeatedly play the entire file (if no start/end times have been
+set), or will repeat the selected portion from start to end (if start/end times
+have been set). See the section on <a href="#L2478">Loops</a> below for details
+on setting up loops.</p>
+
+<p>The Tip Timer indicates the time left. The length of the timer is set in the
+<a href="#L2480">Options</a> dialog (see below). The timer starts running
+automatically when a file starts playing. To pause the timer, simply click on
+the Tip Timer (or use the Timer shortcut key). Click a second time to reset the
+timer to its starting value. When the timer counts down to zero, the timer
+alert sound will play (if one has been set), and the Tip Timer background will
+turn red. The Tip Timer display is also used for the Breaktimer. When the break
+timer is active, the background color of the timer will be yellow. When the
+break timer expires, SdPlayer automatically executes a play/pause command to
+either start or stop the music.</p>
+
+<p>The Volume slider sets the playback volume. When you close SdPlayer it
+remembers the volume setting, so the next time you start SdPlayer the volume
+will be right where you left it. The volume may be set from 0 to 200%. Normally
+the volume should not be set above 100%, since setting it above 100% can cause
+clipping and distortion. However, if the file that is playing was recorded at a
+low level, setting the volume above 100% can give some needed volume boost, and
+may not cause distortion.</p>
+
+<p>You can click-and-drag the Resize handle in the lower-right corner of the
+window (or drag the edges of the window) to resize the main window (or any
+other window) in SdPlayer. This is handy to be able to view more items in the
+playlist, for example, without having to scroll.</p>
+
+<h3><a name="L2470" id="L2470"></a>Menus</h3>
+
+<h4><a name="L2472" id="L2472"></a>File Menu</h4>
+
+<p>The File menu contains the following entries:</p>
+<dl>
+  <dt>Open...</dt>
+    <dd>Opens a dialog box for selecting a playlist file to open. Note that if
+      the previous playlist has been modified, you will first be asked if you
+      want to save the changes you made.</dd>
+  <dt>Save</dt>
+    <dd>Saves the current playlist.</dd>
+  <dt>SaveAs...</dt>
+    <dd>Saves the current playlist under a new name.</dd>
+  <dt>Close</dt>
+    <dd>Closes the current playlist file and empties the playlist. Note that if
+      the playlist has been modified, you will first be asked if you want to
+      save the changes you made.</dd>
+  <dt>Exit</dt>
+    <dd>Exits the program. Note that if the playlist has been modified, you
+      will first be asked if you want to save the changes you made. The next
+      time you start SdPlayer it will automatically open the playlist that was
+      open (if any) when you closed it.</dd>
+</dl>
+
+<h4><a name="L2474" id="L2474"></a>Edit Menu</h4>
+
+<p>The edit menu contains the following entries:</p>
+<dl>
+  <dt>Undo</dt>
+    <dd>This erases the current Zero mark, and rewinds back to the Zero mark
+      that had been set before that. In other words, it goes back one level in
+      the history list of Zero marks.</dd>
+  <dt>Redo</dt>
+    <dd>This restores the last Zero mark that was erased by Undo. Note that a
+      Redo is only possible if you have not set any new Zero marks. Once you
+      zero the counter, redo will not be able to restore any more "undone" zero
+      marks.</dd>
+  <dt>Speed...</dt>
+    <dd>This opens the Speed dialog box which has a slider for setting the
+      playback speed from 75% to 125% of normal speed. This alters the tempo
+      without changing the pitch. The speed always defaults to 100% when
+      SdPlayer is launched.</dd>
+  <dt>Breaktimer...</dt>
+    <dd>This opens the Breaktimer dialog box for starting the break timer. See
+      the section on Breaktimer below for details.</dd>
+  <dt>Loop...</dt>
+    <dd>This opens the Edit Loop dialog box for setting start/end points for
+      looping the current file. See the section on <a href="#L2478">Loops</a>
+      below for details.</dd>
+  <dt>Options...</dt>
+    <dd>This opens the Options dialog box for setting program options. See the
+      section on <a href="#L2480">Options</a> below for details.</dd>
+  <dt>Shortcuts...</dt>
+    <dd>This opens the Shortcuts dialog box for setting keyboard shortcuts. See
+      the section on <a href="#L2482">Keyboard Shortcuts</a> below for
+    details.</dd>
+</dl>
+
+<h4><a name="L2476" id="L2476"></a>Help Menu</h4>
+
+<p>The help menu contains the following entries:</p>
+<dl>
+  <dt>Help</dt>
+    <dd>Displays the SdPlayer help file in your browser.</dd>
+  <dt>About</dt>
+    <dd>Displays the About box showing program version number and contact
+      information.</dd>
+</dl>
+
+<h3><a name="L761" id="L761"></a>Breaktimer</h3>
+
+<p>SdPlayer has a convenient timer for timing the length of breaks. Select the
+Edit-&gt;Breaktimer... menu entry (or press the BreakTimer shortcut key) to
+open the Breaktimer dialog box, which appears as follows:</p>
+
+<p><img alt="Breaktimer" src="breaktimer.png" width="201" height="161"
+style="float: right;"></p>
+
+<p>Simply move the slider to select the length of the timer from 0.0 to 10.0
+minutes in 0.1 minute steps. You may also click the up/down arrows to the right
+of the time, or type in a time. Click OK to start the break timer, or Cancel to
+discard your changes. The timer on the main window will begin counting down the
+length of the break you selected. Note that the background color of the timer
+is yellow while it is being used as a break timer. When the timer expires, a
+play/pause command is automatically executed. This will cause the music to
+start playing (if it was stopped), or to stop playing (if it was already
+playing), to indicate that the break is over. The length of the break timer is
+remembered, and will be the same the next time you open the break timer dialog
+box, although it is not remembered when SpPlayer is closed.</p>
+
+<h3><a name="L2478" id="L2478"></a>Loops</h3>
+
+<p>SdPlayer has two ways to play a file in a loop. It can either loop the
+entire file, or it can loop a selected portion of the file (from a start point
+to an end point). If a start and end point has been set for a file, that
+selection will be looped. If no start or end point has been set it will loop
+the entire file.</p>
+
+<p>The start and end points are set using the Edit-&gt;Loop... menu entry. But
+before opening the Edit Loop dialog box, it is best to mark the desired start
+and end points while playing the file. This is done quite simply by setting a
+Zero mark (i.e zeroing the counter) at the desired loop start point, and
+setting a second Zero mark at the desired loop end. Note that you can always
+Undo the loop end Zero mark and set it again if you need to adjust its position
+before creating the loop. Setting Zero marks is very easy to do by using a
+keyboard shortcut while listening to the file play. Once you have set a Zero
+mark at the loop start and end points, pause the playback and select
+Edit-&gt;Loop... to open the Edit Loop dialog box, which appears as follows:</p>
+
+<p><img alt="Edit Loop" src="editloop.png" style="float: right" width="273"
+height="212"></p>
+
+<p>The Loop Start and Loop End times are shown in milliseconds. For example, a
+loop start time of 10.3 seconds would be shown as 10300, and a loop end time of
+2 minutes 45.7 seconds would be shown as 165700 (2 minutes 45.7 seconds is
+165.700 seconds).</p>
+
+<p>Click the Set Start button to set the Loop Start time to the Zero mark you
+set earlier for the loop start time (i.e. the second to last zero mark that you
+set). Click the Set End button to set the Loop End time to the Zero mark you
+set earlier for the loop end time (i.e. the last zero mark that you set). The
+times will be shown in the dialog box. Click OK to accept these times. The loop
+start/end times will be written into a file with the same name as the MP3 file,
+but with a file type of ".loop". You can adjust the loop start/end times any
+time by opening the Edit Loop dialog box and setting new start/end times, or
+changing the start/end times. You can type in new times, adjust the times by
+clicking the up and down arrows to the right of the times (this changes the
+times in steps of 10 milliseconds), or by draging the sliders under the start
+and end times (for making coarse adjustments anywhere from the start to the end
+of the file). Note that you can also use another application, such as an audio
+editor, to determine your loop start and end times. Simply convert the times
+from your audio editor into milliseconds and type the numbers into the Edit
+Loop dialog box.</p>
+
+<p>To delete the loop start/end information for an MP3 file, simply delete the
+associated ".loop" file. For example, to delete the loop information for My
+Music/Square Dance/Turkey in the Straw.mp3, just delete the file My
+Music/Square Dance/Turkey in the Straw.loop.</p>
+
+<h3><a name="L2480" id="L2480"></a>Options</h3>
+
+<p>Select Edit-&gt;Oprions... to open the options dialog box. It appears as
+follows:</p>
+<img alt="options" src="options.png" style="float: right" width="244"
+height="265"> 
+
+<p>Tip Timer is the length of the tip timer in minutes. Set it to zero to
+disable the tip timer.</p>
+
+<p>Tip Sound is a sound file to play when the tip timer expires. This can be
+any audio file type that VLC can play. Click the Browse button to select a file
+to play. Leave Tip Sound blank to disable the tip timer sound.</p>
+
+<p>Tip Volume sets the volume of the tip timer sound from 0% to 100%. The Tip
+Timer volume is set independently of the music volume, and is not affected by
+the main volume control.</p>
+
+<p>Back Time is the time (in seconds) to automatically back up each time you
+pause the playback. This avoids missing an important word when playback is
+resumed. Backing up a second or two is usually enough.</p>
+
+<p>Skip Time is the time to skip forward and backward when using the skip back
+and forward buttons or keyboard shortcuts.</p>
+
+<p>Volume Step determines the amount to raise or lower the music volume when
+using the volume up and volume down shortcut keys. The total volume range is
+0-200%, so a step size of 10 means there are 10 steps from no volume to 100%
+volume.</p>
+
+<h3><a name="L2482" id="L2482"></a>Keyboard Shortcuts</h3>
+
+<p>SdPlayer has fully user customizable keyboard shortcuts for all major
+functions. Select Edit-&gt;Shortcuts... to open the shortcuts dialog box. It
+appears as follows:</p>
+<img alt="shortcuts" src="shortcuts.png" style="float: right" width="293"
+height="166"> 
+
+<p>There is a list of Key/Action pairs. Key tells which key has been assigned
+to perform the action. The key may optionally have modifiers of Ctrl, Shift
+and/or Alt to indicate that the designated modifier key(s) must be held down at
+the same time the shortcut key is pressed. Action tells what action is to be
+performed when the shortcut key is pressed. Available actions are as
+follows:</p>
+<dl>
+  <dt>Back</dt>
+    <dd>Skip backward by the skip time set in options. Note that this will
+      seamlessly skip back across track boundaries if necessary.</dd>
+  <dt>BreakTimer</dt>
+    <dd>Opens the Breaktimer dialog box to set the time for, and start the
+      break timer.</dd>
+  <dt>Forward</dt>
+    <dd>Skip forward by the skip time set in options. Note that this will
+      seamlessly skip forward across track boundaries if necessary.</dd>
+  <dt>Loop</dt>
+    <dd>Toggles Loop mode on and off.</dd>
+  <dt>NextTrack</dt>
+    <dd>Advances to the next track in the playlist.</dd>
+  <dt>PlayPause</dt>
+    <dd>Toggles between Play and Pause. Note that pausing will automatically
+      back up by the Back Time set in options.</dd>
+  <dt>PrevTrack</dt>
+    <dd>Backs up to the previous track in the playlist.</dd>
+  <dt>Redo</dt>
+    <dd>Restores one zero mark previously deleted by an Undo. Redo Only works
+      if no new Zero marks have been set since the last Undo.</dd>
+  <dt>Rewind</dt>
+    <dd>Rewinds back to the last Zero mark that was set.</dd>
+  <dt>Timer</dt>
+    <dd>Stops the timer (if it was running), or resets the timer back to its
+      starting value (if the timer was already stopped). The timer starts
+      automatically when a file starts playing.</dd>
+  <dt>Undo</dt>
+    <dd>Deletes the most recently set Zero mark, and rewinds back to the Zero
+      mark that was set before that one.</dd>
+  <dt>VolumeDown</dt>
+    <dd>Turns the volume down by one volume step (as set in options).</dd>
+  <dt>VolumeUp</dt>
+    <dd>Turns the volume up by one volume step (as set in options).</dd>
+  <dt>Zero</dt>
+    <dd>Zeros the counter by setting a Zero mark at the current play position.
+      You may instantly return to this zero mark with Rewind. Note that
+      SdPlayer also automatically sets a zero mark at the beginning of a track
+      when the new track starts to play. This is done so the counter starts at
+      zero when a new track starts playing.</dd>
+</dl>
+
+<p>To delete a shortcut, simply select it and click the Delete button. To add a
+new shortcut, click the Add... button to open the Shortcut dialog box, which
+appears as follows:</p>
+<img alt="shortcut" src="shortcut.png" style="float: right" width="198"
+height="164"> 
+
+<p>To add a new shortcut, simply select the desired shortcut key from the Key
+dropdown list box, and select the desired action from the Action dropdown list
+box. Check any modifier key(s) you want, and click OK. Note that is is
+perfectly acceptable to assign more than one shortcut key to the same action.
+The default shortcut keys are assigned as follows (note that some actions have
+multiple shortcut keys for compatibility with old versions of Wplayer).</p>
+
+<table border="1">
+  <col>
+  <col>
+  <tbody>
+    <tr>
+      <td>Key(s)</td>
+      <td>Action</td>
+    </tr>
+    <tr>
+      <td>Left<br>
+        F5<br>
+        B</td>
+      <td>Back</td>
+    </tr>
+    <tr>
+      <td>K</td>
+      <td>BreakTimer</td>
+    </tr>
+    <tr>
+      <td>Right<br>
+        F8<br>
+        F </td>
+      <td>Forward</td>
+    </tr>
+    <tr>
+      <td>L</td>
+      <td>Loop</td>
+    </tr>
+    <tr>
+      <td>N<br>
+        F7</td>
+      <td>NextTrack</td>
+    </tr>
+    <tr>
+      <td>Space</td>
+      <td>PlayPause</td>
+    </tr>
+    <tr>
+      <td>P<br>
+        F6</td>
+      <td>PrevTrack</td>
+    </tr>
+    <tr>
+      <td>D</td>
+      <td>Redo</td>
+    </tr>
+    <tr>
+      <td>R<br>
+        F11<br>
+        Home</td>
+      <td>Rewind</td>
+    </tr>
+    <tr>
+      <td>T<br>
+        F12</td>
+      <td>Timer</td>
+    </tr>
+    <tr>
+      <td>Backspace</td>
+      <td>Undo</td>
+    </tr>
+    <tr>
+      <td>Down</td>
+      <td>VolumeDown</td>
+    </tr>
+    <tr>
+      <td>Up</td>
+      <td>VolumeUp</td>
+    </tr>
+    <tr>
+      <td>Z<br>
+        F9<br>
+        End</td>
+      <td>Zero</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2><a name="L712" id="L712"></a>Customizing Supported File Types</h2>
+
+<p>To change the list of file types supported by SdPlayer, simply edit the text
+file "filetypes.txt" which you can find in the folder where SdPlayer was
+installed. This file contains a list of supported file types, with one file
+type listed per line. Note that the VLC player libraries must already support
+any file types you list in this file. Editing filetypes.txt simply changed what
+file types SdPlayer will allow you to add to a playlist. A codec must already
+be installed to allow SdPlayer to actually play the file. The file type "mp3"
+will always be allowed whether of not it is included in filetypes.txt.</p>
+
+<p>By default, the supported file types are aac, ac3, amr, ape, dts, flac, mod,
+mp1, mp2, mp3, ogg, opus, ra, tta, wav, wma, wv and xm.</p>
+
+<p>Any audio file type supported by VLC media player will work with SdPlayer as
+long as the file type is listed in the filetypes.txt file.</p>
+</body>
+</html>
