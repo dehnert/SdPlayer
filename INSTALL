@@ -1,0 +1,8 @@
+To build on Linux, run:
+qmake
+make
+
+You may need to install:
+qtbase5-dev libvlc-dev
+
+to get it to build.
