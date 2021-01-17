@@ -1,5 +1,5 @@
 SdPlayer usr/libexec
-assets/sdplayer.sh usr/bin
+assets/SdPlayer usr/bin
 assets/sdplayer.ini etc/xdg/krubow
 assets/krubow-sdplayer.desktop usr/share/applications
 *.png usr/share/sdplayer

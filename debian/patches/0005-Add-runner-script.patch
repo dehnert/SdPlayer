@@ -1,0 +1,28 @@
+From: Alex Dehnert <adehnert@mit.edu>
+Date: Sun, 17 Jan 2021 12:50:48 -0500
+Subject: Add runner script
+
+This is from the upstream .deb, except that I quote the argument and updated
+the path to use /usr/libexec per FHS
+(https://www.debian.org/doc/packaging-manuals/fhs/fhs-3.0.html#usrlibexec)
+
+---
+ assets/SdPlayer | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+ create mode 100755 assets/sdplayer.sh
+
+diff --git a/assets/sdplayer.sh b/assets/SdPlayer
+new file mode 100755
+index 0000000..1824ef2
+--- /dev/null
++++ b/assets/SdPlayer
+@@ -0,0 +1,9 @@
++#!/bin/sh
++# disable screen saver
++xset s 0
++
++# launch SdPlayer (with command line parameter to open file/playlist)
++/usr/libexec/SdPlayer "$1"
++
++# reenable screen saver
++xset s 600
