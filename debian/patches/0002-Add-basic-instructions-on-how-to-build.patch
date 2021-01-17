@@ -1,0 +1,23 @@
+From: Alex Dehnert <adehnert@mit.edu>
+Date: Sat, 16 Jan 2021 01:20:57 -0500
+Subject: Add basic instructions on how to build
+
+---
+ INSTALL | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+ create mode 100644 INSTALL
+
+diff --git a/INSTALL b/INSTALL
+new file mode 100644
+index 0000000..f3b8e80
+--- /dev/null
++++ b/INSTALL
+@@ -0,0 +1,8 @@
++To build on Linux, run:
++qmake
++make
++
++You may need to install:
++qtbase5-dev libvlc-dev
++
++to get it to build.

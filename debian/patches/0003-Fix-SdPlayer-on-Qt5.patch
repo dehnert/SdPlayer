@@ -1,0 +1,33 @@
+From: Alex Dehnert <adehnert@mit.edu>
+Date: Tue, 12 Jan 2021 11:23:03 -0500
+Subject: Fix SdPlayer on Qt5
+
+---
+ SdPlayer.pro | 3 +++
+ main.cpp     | 2 +-
+ 2 files changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/SdPlayer.pro b/SdPlayer.pro
+index 7c37fe0..59a1d79 100644
+--- a/SdPlayer.pro
++++ b/SdPlayer.pro
+@@ -6,6 +6,9 @@
+ 
+ QT       += core gui
+ 
++# Required on Qt5+ - https://stackoverflow.com/a/9112452/1797496
++QT       += widgets
++
+ TARGET = SdPlayer
+ TEMPLATE = app
+ 
+diff --git a/main.cpp b/main.cpp
+index cfb1543..6e6e410 100644
+--- a/main.cpp
++++ b/main.cpp
+@@ -1,4 +1,4 @@
+-#include <QtGui/QApplication>
++#include <QApplication>
+ #include "mainwindow.h"
+ 
+ int main(int argc, char *argv[])
