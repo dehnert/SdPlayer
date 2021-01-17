@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=SdPlayer
+Comment=Square Dance music player
+Exec=SdPlayer
+Icon=/usr/share/sdplayer/Music.png
+StartupNotify=true
+Terminal=false
+Type=Application
+Categories=GNOME;GTK;AudioVideo;Audio;Player;
+Name[en_US]=SdPlayer
