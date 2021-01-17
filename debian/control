@@ -1,0 +1,22 @@
+Source: sdplayer
+Section: unknown
+Priority: optional
+Maintainer: Alex Dehnert <adehnert@mit.edu>
+Build-Depends: debhelper (>=9~), qt5-qmake, qtbase5-dev, libvlc-dev
+Standards-Version: 4.1.4
+Homepage: https://www.krubow.com/Downloads.htm#dlsdplayer
+
+
+Package: sdplayer
+Architecture: any
+Multi-Arch: foreign
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: SdPlayer is a Square Dance music player
+  SdPlayer is a music player with special features for square dance tape groups and callers.
+  .
+  It has a tape counter you can zero, rewind-to-zero, and a zero undo history buffer. 
+  It has a loop feature for callers that can loop a track or a portion of a track. 
+  It remembers the last zero position so it resumes playback at that point the next time 
+  SdPlayer is started. It has user configurable shoutcut keys. It has a tip timer that can play 
+  a user selected sound as well as give a visual indication, and a break timer for timing the 
+  length of breaks.

@@ -1,0 +1,59 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: sdplayer
+Source: <url://example.com>
+#
+# Please double check copyright with the licensecheck(1) command.
+
+Files:     .gitignore
+           INSTALL
+           Music.ico
+           Music.png
+           SdPlayer.pro
+           addvlcpath.bat
+           breaktimer.cpp
+           breaktimer.h
+           breaktimer.png
+           debian/source/format
+           editloop.png
+           filetypes.txt
+           loop.cpp
+           loop.h
+           main.cpp
+           mainwindow.cpp
+           mainwindow.h
+           mainwindow.png
+           options.png
+           playlistmodel.cpp
+           playlistmodel.h
+           sdplayer-2.00.orig.tar.gz
+           sdplayer-2.00.orig.zip
+           sdplayer.rc
+           settings.cpp
+           settings.h
+           shortcut.cpp
+           shortcut.h
+           shortcut.png
+           shortcuts.cpp
+           shortcuts.h
+           shortcuts.png
+           sound.png
+           sound_mute.png
+           speed.cpp
+           speed.h
+Copyright: __NO_COPYRIGHT_NOR_LICENSE__
+License:   __NO_COPYRIGHT_NOR_LICENSE__
+
+#----------------------------------------------------------------------------
+# xml and html files (skipped):
+#         settings.ui
+#         shortcut.ui
+#         mainwindow.ui
+#         speed.ui
+#         breaktimer.ui
+#         sdplayer.html
+#         loop.ui
+#         shortcuts.ui
+
+#----------------------------------------------------------------------------
+# Files marked as NO_LICENSE_TEXT_FOUND may be covered by the following
+# license/copyright files.
