@@ -1,0 +1,74 @@
+From: Alex Dehnert <adehnert@mit.edu>
+Date: Sun, 17 Jan 2021 12:40:55 -0500
+Subject: Add config files from upstream .deb
+
+---
+ assets/krubow-sdplayer.desktop | 11 +++++++++++
+ assets/sdplayer.ini            | 40 ++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 51 insertions(+)
+ create mode 100644 assets/krubow-sdplayer.desktop
+ create mode 100644 assets/sdplayer.ini
+
+diff --git a/assets/krubow-sdplayer.desktop b/assets/krubow-sdplayer.desktop
+new file mode 100644
+index 0000000..f89e2e4
+--- /dev/null
++++ b/assets/krubow-sdplayer.desktop
+@@ -0,0 +1,11 @@
++[Desktop Entry]
++Encoding=UTF-8
++Name=SdPlayer
++Comment=Square Dance music player
++Exec=SdPlayer
++Icon=/usr/share/sdplayer/Music.png
++StartupNotify=true
++Terminal=false
++Type=Application
++Categories=GNOME;GTK;AudioVideo;Audio;Player;
++Name[en_US]=SdPlayer
+diff --git a/assets/sdplayer.ini b/assets/sdplayer.ini
+new file mode 100644
+index 0000000..5f07ad6
+--- /dev/null
++++ b/assets/sdplayer.ini
+@@ -0,0 +1,40 @@
++[General]
++volume=100
++openfile=
++tiptime=12
++tipvolume=100
++backtime=1
++skiptime=5
++volumestep=10
++soundfile=
++
++[shortcuts]
++1\key=Space
++1\action=PlayPause
++2\key=Left
++2\action=Back
++3\key=Right
++3\action=Forward
++4\key=Up
++4\action=VolumeUp
++5\key=Down
++5\action=VolumeDown
++6\key=Z
++6\action=Zero
++7\key=T
++7\action=Timer
++8\key=Backspace
++8\action=Undo
++9\key=R
++9\action=Rewind
++10\key=D
++10\action=Redo
++11\key=N
++11\action=NextTrack
++12\key=P
++12\action=PrevTrack
++13\key=L
++13\action=Loop
++14\key=K
++14\action=BreakTimer
++size=14
