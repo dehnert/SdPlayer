@@ -25,30 +25,6 @@ apps:
       - audio-playback
 
 parts:
-  # From https://forum.snapcraft.io/t/reusable-alsa-lib-part/3556
-  alsa-lib:
-    plugin: autotools
-    source: ftp://ftp.alsa-project.org/pub/lib/alsa-lib-1.1.5.tar.bz2
-    configflags:
-      - --prefix=/usr
-      - --sysconfdir=/etc
-      - --libexec=/usr/lib
-      - --libdir=/usr/lib
-      - --localstatedir=/var
-      - --with-configdir=/snap/$SNAPCRAFT_PROJECT_NAME/current/usr/share/alsa
-      - --with-plugindir=/snap/$SNAPCRAFT_PROJECT_NAME/current/usr/lib/alsa-lib
-      - --disable-static
-    stage:
-      - usr/include
-      - usr/lib
-    prime:
-      - -usr/bin
-      - -usr/include
-      - -usr/lib/pkgconfig
-      - -usr/share/alsa/alsa.conf
-      - -usr/share/alsa/pcm
-      - -usr/share/alsa/topology/broadwell
-
   sdplayer:
 #    parse-info:
 #      - usr/share/metainfo/org.kde.kcalc.appdata.xml
@@ -67,8 +43,6 @@ parts:
             cp SdPlayer ../install/usr/bin/
     stage:
       - usr/bin/SdPlayer
-    after:
-      - alsa-lib
 
   runtime-deps:
     plugin: nil
