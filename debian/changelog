@@ -1,3 +1,9 @@
+sdplayer (2.00-2) UNRELEASED; urgency=low
+
+  * Bump version so per-distro builds are newer
+
+ -- Alex Dehnert <adehnert@mit.edu>  Sun, 24 Jan 2021 13:08:00 -0500
+
 sdplayer (2.00-1) UNRELEASED; urgency=low
 
   * Initial release.
