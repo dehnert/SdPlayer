@@ -58,3 +58,11 @@ win32 {
 !win32 {
   LIBS += -lvlc
 }
+
+# for macos
+macx {
+  INCLUDEPATH += "/Applications/VLC.app/Contents/MacOS/include"
+  # path to vlc libraries
+  LIBS += -L"/Applications/VLC.app/Contents/MacOS/lib"
+  LIBS += -lvlc
+}

@@ -74,14 +74,14 @@ font-size: 50px;
       </property>
       <property name="minimumSize">
        <size>
-        <width>31</width>
-        <height>31</height>
+        <width>40</width>
+        <height>40</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
-        <width>31</width>
-        <height>31</height>
+        <width>40</width>
+        <height>40</height>
        </size>
       </property>
       <property name="toolTip">
@@ -102,14 +102,14 @@ font-size: 50px;
       </property>
       <property name="minimumSize">
        <size>
-        <width>31</width>
-        <height>31</height>
+        <width>40</width>
+        <height>40</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
-        <width>31</width>
-        <height>31</height>
+        <width>40</width>
+        <height>40</height>
        </size>
       </property>
       <property name="toolTip">
@@ -130,14 +130,14 @@ font-size: 50px;
       </property>
       <property name="minimumSize">
        <size>
-        <width>31</width>
-        <height>31</height>
+        <width>40</width>
+        <height>40</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
-        <width>31</width>
-        <height>31</height>
+        <width>40</width>
+        <height>40</height>
        </size>
       </property>
       <property name="toolTip">
@@ -158,14 +158,14 @@ font-size: 50px;
       </property>
       <property name="minimumSize">
        <size>
-        <width>31</width>
-        <height>31</height>
+        <width>40</width>
+        <height>40</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
-        <width>31</width>
-        <height>31</height>
+        <width>40</width>
+        <height>40</height>
        </size>
       </property>
       <property name="toolTip">
@@ -186,14 +186,14 @@ font-size: 50px;
       </property>
       <property name="minimumSize">
        <size>
-        <width>31</width>
-        <height>31</height>
+        <width>40</width>
+        <height>40</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
-        <width>31</width>
-        <height>31</height>
+        <width>40</width>
+        <height>40</height>
        </size>
       </property>
       <property name="toolTip">
@@ -214,14 +214,14 @@ font-size: 50px;
       </property>
       <property name="minimumSize">
        <size>
-        <width>31</width>
-        <height>31</height>
+        <width>40</width>
+        <height>40</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
-        <width>31</width>
-        <height>31</height>
+        <width>40</width>
+        <height>40</height>
        </size>
       </property>
       <property name="toolTip">
