@@ -1,8 +1,8 @@
 name: sdplayer
-version: '2.00.1'
+version: '2.00.2'
 grade: stable
 title: Square dance tape group music player
-summary: foo
+summary: Music player for running square dancing tape groups
 description: SdPlayer gives you all the features you need for playing music at your tape group. Unlike Wplayer, SdPlayer does not need WinAmp. SdPlayer simplifies playlist management because no tape group files are needed to remember where you left off in the playlist. SdPlayer gives you a tape counter, rewind to zero, tip timer with sound, music looping for callers, and user configurable keyboard shortcut keys. It adds playback speed control and a separate tip timer sound volume control. And SdPlayer is available for both Windows and Linux. It is also OPEN SOURCE, so you can download the source code if desired.
 
 confinement: strict
@@ -37,12 +37,9 @@ parts:
       - vlc-plugin-base
     #source: https://www.krubow.com/Downloads/SdPlayerSrc200.zip
     source: .
-    override-build: |
-            snapcraftctl build
-            mkdir -p ../install/usr/bin/
-            cp SdPlayer ../install/usr/bin/
-    stage:
-      - usr/bin/SdPlayer
+    organize:
+      ../build/assets/sdplayer.ini: etc/xdg/krubow/sdplayer.ini
+      ../build/SdPlayer: usr/bin/SdPlayer
 
   runtime-deps:
     plugin: nil
