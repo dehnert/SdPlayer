@@ -46,7 +46,7 @@ jobs:
 
       - name: ls
         run: |
-            ls -R "C:/Program Files/VideoLAN/VLC/sdk/include"
+            ls -R "C:/Program Files/VideoLAN/VLC/"
 
       - name: Build SdPlayer - more steps
         run: |
