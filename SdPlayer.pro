@@ -46,11 +46,13 @@ win32 {
       sdplayer.rc
   RC_FILE += sdplayer.rc
 
+  QMAKE_LFLAGS_WINDOWS += "-static -static-libgcc -static-libstdc++"
+
   # path from my project to vlc include files
-  INCLUDEPATH += "C:\Program Files\VideoLAN\VLC\sdk\include"
+  INCLUDEPATH += "../vlc-3.0.18/sdk/include"
 
   # path to vlc libraries
-  LIBS += -L"C:/Program Files/VideoLAN/VLC/sdk/lib"
+  LIBS += -L"../vlc-3.0.18/sdk/lib/"
   LIBS += -llibvlc
 }
 
