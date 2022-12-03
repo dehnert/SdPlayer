@@ -38,6 +38,12 @@ jobs:
         run: |
             qmake -config release
 
+      - name: Save qmake outputs
+        uses: actions/upload-artifact@v3
+        with:
+            name: SdPlayer qmake
+            path: Makefile*
+
       - name: Build SdPlayer - more steps
         run: |
             make
