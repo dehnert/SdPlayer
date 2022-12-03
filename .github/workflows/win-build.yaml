@@ -44,10 +44,13 @@ jobs:
             name: SdPlayer qmake
             path: Makefile*
 
+      - name: ls
+        run: |
+            ls -R "C:/Program Files/VideoLAN/VLC/sdk/include"
+
       - name: Build SdPlayer - more steps
         run: |
             nmake
-            ls -R release
             ls -R
 
       - name: Add extra assets
