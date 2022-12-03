@@ -38,6 +38,8 @@ jobs:
         run: |
             qmake -config release
             make
+            cat Makefile.release
+            cat Makefile.debug
             ls -R release
             ls -R
 
