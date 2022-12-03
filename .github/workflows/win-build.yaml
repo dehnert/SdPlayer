@@ -34,9 +34,12 @@ jobs:
       - name: Install Qt
         uses: jurplel/install-qt-action@v3
 
-      - name: Build SdPlayer
+      - name: Build SdPlayer - qmake
         run: |
             qmake -config release
+
+      - name: Build SdPlayer - more steps
+        run: |
             make
             cat Makefile.release
             cat Makefile.debug
