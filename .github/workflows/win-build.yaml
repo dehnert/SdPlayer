@@ -36,7 +36,7 @@ jobs:
 
       - name: Build SdPlayer - qmake
         run: |
-            qmake -config release -platform win64-g++
+            qmake -config release -platform win32-g++
 
       - name: Save qmake outputs
         uses: actions/upload-artifact@v3
