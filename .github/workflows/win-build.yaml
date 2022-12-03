@@ -1,4 +1,4 @@
-name: MacOS build
+name: Nidows build
 
 # Run this workflow every time a new commit pushed to your repository
 on: push
@@ -6,29 +6,23 @@ on: push
 jobs:
   # Set the job key. The key is displayed as the job name
   # when a job name is not provided
-  macos-build:
+  win-build:
     # Name the Job
-    name: Build for MacOS
+    name: Build for Windows
     # Set the type of machine to run on
     # Qt doesn't currently like 11.0, so we don't use macos-latest
-    runs-on: macos-12
+    runs-on: windows-latest
 
     steps:
       # Checks out a copy of your repository on the ubuntu-latest machine
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # Based on https://gist.github.com/ruario/b83c1030790948d66c624aa99203140c
-      # to unpack the DMG
+        # GitHub suggests using choco to install packages
+        # https://docs.github.com/en/actions/using-github-hosted-runners/customizing-github-hosted-runners#installing-software-on-windows-runners
       - name: Install VLC
         timeout-minutes: 2
-        run: |
-            curl 'https://ftp.osuosl.org/pub/videolan/vlc/3.0.12/macosx/vlc-3.0.12-intel64.dmg' -o /tmp/vlc.dmg
-            df -h
-            mkdir /tmp/vlc
-            hdiutil attach "/tmp/vlc.dmg" -mountpoint "/tmp/vlc" -nobrowse
-            echo "Finished attaching dmg"
-            cp -r /tmp/vlc/VLC.app /Applications/VLC.app
+        run: choco install vlc
 
       - name: Install Qt
         uses: jurplel/install-qt-action@v3
@@ -37,10 +31,7 @@ jobs:
         run: |
             qmake -config release
             make
-            echo Adding RPATH
-            install_name_tool -add_rpath /Applications/VLC.app/Contents/MacOS/lib SdPlayer.app/Contents/MacOS/SdPlayer
-            echo Checking RPATH
-            otool -l SdPlayer.app/Contents/MacOS/SdPlayer | grep -B2 -A5 RPATH
+            ls -l
 
       - name: Add extra assets
         run: |
