@@ -165,6 +165,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionSave, SIGNAL(triggered()), this, SLOT(save()));
     connect(ui->actionClose, SIGNAL(triggered()), this, SLOT(closefile()));
     connect(ui->actionOpen_Playlist, SIGNAL(triggered()), this, SLOT(open()));
+    connect(ui->actionAdd_Tapes, SIGNAL(triggered()), this, SLOT(action_add_tapes()));
     connect(ui->actionExit, SIGNAL(triggered()), this, SLOT(close()));
     PlaylistChanged=false;
     SavedZero.position=-1;
@@ -1073,6 +1074,25 @@ void MainWindow::open(void)
         openPlaylist(filename);
         QDir path(filename);
         mydir=path.absolutePath(); // remember last visited directory
+    }
+}
+
+void MainWindow::action_add_tapes(void)
+{
+    QStringList filenames;
+    static QString mydir=QDir::homePath(); // last visited directory
+
+    filenames=QFileDialog::getOpenFileNames(this,"Add Tapes",mydir,"MP3 files (*.mp3)");
+    if (filenames.empty()) return;
+
+    int row = playlistModel->rowCount();
+    for (const QString& filename : filenames) {
+        QFileInfo fileinfo(filename);
+        mydir = fileinfo.dir().absolutePath();
+        // TODO: Verify file type (reuse playlistmodel.cpp code?)
+        playlistModel->insertRow(row);
+        playlistModel->setData(playlistModel->index(row,0,QModelIndex()),filename);
+        row++;
     }
 }
 

@@ -49,6 +49,7 @@ public slots:
     void save(void);
     void closefile(void);
     void open(void);
+    void action_add_tapes(void);
     void dragEnterEvent(QDragEnterEvent *event); // for drag-drop
     void playlistDropped(QString filename);
 
