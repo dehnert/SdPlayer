@@ -1,4 +1,4 @@
-name: Nidows build
+name: Windows build
 
 # Run this workflow every time a new commit pushed to your repository
 on: push
@@ -16,7 +16,14 @@ jobs:
     steps:
       # Checks out a copy of your repository on the ubuntu-latest machine
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+
+      # Fixes missing compiler error on build -- from
+      # https://forum.qt.io/topic/137995/github-workflow-cannot-run-compiler-cl/4
+      - name: Set up Visual Studio shell
+        uses: egor-tensin/vs-shell@v2
+        with:
+          arch: x64
 
         # GitHub suggests using choco to install packages
         # https://docs.github.com/en/actions/using-github-hosted-runners/customizing-github-hosted-runners#installing-software-on-windows-runners
@@ -48,7 +55,7 @@ jobs:
         run: macdeployqt SdPlayer.app -dmg
 
       - name: Save DMG
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
             name: SdPlayer
             path: SdPlayer.dmg

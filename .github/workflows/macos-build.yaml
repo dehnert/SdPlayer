@@ -16,7 +16,7 @@ jobs:
     steps:
       # Checks out a copy of your repository on the ubuntu-latest machine
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       # Based on https://gist.github.com/ruario/b83c1030790948d66c624aa99203140c
       # to unpack the DMG
@@ -57,7 +57,7 @@ jobs:
         run: macdeployqt SdPlayer.app -dmg
 
       - name: Save DMG
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
             name: SdPlayer
             path: SdPlayer.dmg
