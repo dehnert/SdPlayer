@@ -47,8 +47,6 @@ jobs:
       - name: Build SdPlayer - more steps
         run: |
             make
-            cat Makefile.release
-            cat Makefile.debug
             ls -R release
             ls -R
 
