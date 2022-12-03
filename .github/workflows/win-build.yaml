@@ -38,6 +38,7 @@ jobs:
         run: |
             qmake -config release
             make
+            ls -R release
             ls -R
 
       - name: Add extra assets
