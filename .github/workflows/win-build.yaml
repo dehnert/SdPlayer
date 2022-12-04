@@ -52,7 +52,7 @@ jobs:
 
       - name: Build SdPlayer - qmake
         run: |
-            qmake -config release
+            qmake -config release DEFINES+=ssize_t=SSIZE_T
 
       - name: Save qmake outputs
         uses: actions/upload-artifact@v3
