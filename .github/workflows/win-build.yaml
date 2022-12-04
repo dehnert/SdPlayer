@@ -37,6 +37,7 @@ jobs:
             mingw32-make
             ls -R
             windeployqt release
+            echo ls -R release
             ls -R release
 
       - name: Save exe
