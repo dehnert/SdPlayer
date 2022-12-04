@@ -28,6 +28,7 @@
                    <File Id="Filetypes" Source="filetypes.txt"/>
                    <File Id="IniFile" Source="assets/sdplayer.ini"/>
                    <CopyFile Id="pngs" DestinationProperty="DESTDIR" SourceName="*.png"/>
+                   <CopyFile Id="QtLibs" DestinationProperty="DESTDIR" SourceName="release/Qt5*.dll"/>
                </Component>
             </Directory>
          </Directory>
