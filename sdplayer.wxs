@@ -27,7 +27,7 @@
                    <File Id="Exec" Source="release/SdPlayer.exe"/>
                    <File Id="Filetypes" Source="filetypes.txt"/>
                    <File Id="IniFile" Source="assets/sdplayer.ini"/>
-                   <CopyFile Id="pngs" SourceName="*.png"/>
+                   <CopyFile Id="pngs" DestinationProperty="DESTDIR" SourceName="*.png"/>
                </Component>
             </Directory>
          </Directory>
