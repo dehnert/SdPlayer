@@ -49,8 +49,8 @@ win32 {
   RC_FILE += sdplayer.rc
 
   # path from my project to vlc include files
-  INCLUDEPATH += "C:/a/SdPlayer/vlc-3.0.18/include"
-  QMAKE_INCDIR += "C:/a/SdPlayer/vlc-3.0.18/include"
+  #INCLUDEPATH += "D:/a/SdPlayer/vlc-3.0.18/include"
+  INCLUDEPATH += "../vlc-3.0.18/include"
 
   # path to vlc libraries
   LIBS += -L"C:/Program Files/VideoLAN/VLC/sdk/lib"
