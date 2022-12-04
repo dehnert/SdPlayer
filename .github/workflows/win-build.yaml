@@ -53,7 +53,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
             name: SdPlayer Qt
-            path: ../Qt/
+            path: "D:/a/SdPlayer/Qt/"
 
       - name: Save qmake outputs
         uses: actions/upload-artifact@v3
