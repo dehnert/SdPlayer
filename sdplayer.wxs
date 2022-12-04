@@ -29,6 +29,7 @@
                    <File Id="IniFile" Source="assets/sdplayer.ini"/>
                    <CopyFile Id="pngs" DestinationProperty="DESTDIR" SourceName="*.png"/>
                    <CopyFile Id="QtLibs" DestinationProperty="DESTDIR" SourceName="release/Qt5*.dll"/>
+                   <File Id="Vlc" Source="../vlc-3.0.18/libvlc.dll"/>
                </Component>
             </Directory>
          </Directory>
