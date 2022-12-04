@@ -61,6 +61,8 @@ jobs:
             ls
             echo ..
             ls ..
+            echo vlc
+            ls -R C:/a/SdPlayer/vlc-3.0.18/include
 
       - name: Build SdPlayer - more steps
         run: |
