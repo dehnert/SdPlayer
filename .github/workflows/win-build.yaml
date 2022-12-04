@@ -36,10 +36,14 @@ jobs:
       - name: Add VLC includes
         run: |
             curl --location -o vlc-3.0.18.tar.xz https://get.videolan.org/vlc/3.0.18/vlc-3.0.18.tar.xz
+            echo Downloaded
             tar -xvf vlc-3.0.18.tar.xz
+            echo Extracted
             mkdir "C:/Program Files/VideoLAN/VLC/sdk/"
-            #cp -r vlc-3.0.18/include/ "C:/Program Files/VideoLAN/VLC/sdk/"
-            Copy-Item -Recurse vlc-3.0.18/include/ "C:/Program Files/VideoLAN/VLC/sdk/"
+            echo mkdir
+            cp -r vlc-3.0.18/include/ "C:/Program Files/VideoLAN/VLC/sdk/"
+            echo Copied
+            #Copy-Item -Recurse vlc-3.0.18/include/ "C:/Program Files/VideoLAN/VLC/sdk/"
 
       - name: Install Qt
         uses: jurplel/install-qt-action@v3
