@@ -35,17 +35,12 @@ jobs:
       # (Decent chance if we're doing this we shouldn't use choco?)
       - name: Add VLC includes
         run: |
+            cd ..
             curl --location -o vlc-3.0.18.tar.xz https://get.videolan.org/vlc/3.0.18/vlc-3.0.18.tar.xz
-            echo Downloaded
             7z x vlc-3.0.18.tar.xz
-            echo decompress
             tar -xvf vlc-3.0.18.tar
-            echo Extracted
             mkdir "C:/Program Files/VideoLAN/VLC/sdk/"
-            echo mkdir
             cp -r vlc-3.0.18/include/ "C:/Program Files/VideoLAN/VLC/sdk/"
-            echo Copied
-            #Copy-Item -Recurse vlc-3.0.18/include/ "C:/Program Files/VideoLAN/VLC/sdk/"
 
       - name: Install Qt
         uses: jurplel/install-qt-action@v3
@@ -62,6 +57,11 @@ jobs:
 
       - name: ls
         run: |
+            echo .
+            ls
+            echo ..
+            ls ..
+            echo sdk
             ls -R "C:/Program Files/VideoLAN/VLC/sdk/"
 
       - name: Build SdPlayer - more steps
