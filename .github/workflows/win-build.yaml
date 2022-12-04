@@ -62,7 +62,9 @@ jobs:
             echo ..
             ls ..
             echo vlc
-            ls -R D:/a/SdPlayer/vlc-3.0.18/include
+            ls -R "C:/Program Files/VideoLAN/"
+            #echo vlc
+            #ls -R D:/a/SdPlayer/vlc-3.0.18/include
 
       - name: Build SdPlayer - more steps
         run: |
