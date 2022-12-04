@@ -35,7 +35,7 @@ jobs:
       # (Decent chance if we're doing this we shouldn't use choco?)
       - name: Add VLC includes
         run: |
-            wget https://get.videolan.org/vlc/3.0.18/vlc-3.0.18.tar.xz
+            curl --location -o vlc-3.0.18.tar.xz https://get.videolan.org/vlc/3.0.18/vlc-3.0.18.tar.xz
             tar -xvf vlc-3.0.18.tar.xz
             mkdir "C:/Program Files/VideoLAN/VLC/sdk/"
             cp -r vlc-3.0.18/include/ "C:/Program Files/VideoLAN/VLC/sdk/"
