@@ -31,7 +31,7 @@ jobs:
         with:
             arch: win64_mingw81
 
-      - name: Build SdPlayer - qmake
+      - name: Build SdPlayer
         run: |
             qmake -config release -config windeployqt -platform win32-g++
             mingw32-make
@@ -46,21 +46,14 @@ jobs:
             name: SdPlayer.exe
             path: release/SdPlayer.exe
 
-      - name: Add extra assets
+      - name: Build installer
         run: |
-            cp filetypes.txt *.png SdPlayer.app/Contents/MacOS
-            mkdir SdPlayer.app/Contents/krubow
-            cp assets/sdplayer.ini SdPlayer.app/Contents/krubow/
+            candle sdplayer.wxs
+            light sdplayer.wixobj
+            ls
+            ls release
 
-      - name: Fetch icons
-        run: |
-            curl -o Music.icns "https://wikis.mit.edu/confluence/download/attachments/139234615/Music.icns?api=v2"
-            cp Music.icns SdPlayer.app/Contents/Resources
-
-      - name: Create DMG
-        run: macdeployqt SdPlayer.app -dmg
-
-      - name: Save DMG
+      - name: Save installer
         uses: actions/upload-artifact@v3
         with:
             name: SdPlayer

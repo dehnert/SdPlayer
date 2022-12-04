@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<?define ProductVersion = "2.00.3"?>
+<?define ProductUpgradeCode = "91d4a63a-bdcb-4aa3-8d4d-ecaeb7da8e62"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+   <Product Id="*" UpgradeCode="$(var.ProductUpgradeCode)" 
+            Name="SdPlayer" Version="$(var.ProductVersion)" Manufacturer="SdPlayer" Language="1033">
+      <Package InstallerVersion="200" Compressed="yes" Comments="Windows Installer Package"/>
+      <Media Id="1" Cabinet="product.cab" EmbedCab="yes"/>
+      <Icon Id="ProductIcon" SourceFile="Music.ico"/>
+      <Property Id="ARPPRODUCTICON" Value="ProductIcon"/>
+      <Property Id="ARPHELPLINK" Value="https://www.krubow.com/Downloads/SdPlayer200/sdplayer.html"/>
+      <Property Id="ARPURLINFOABOUT" Value="https://www.krubow.com/Downloads.htm#dlsdplayer"/>
+      <Property Id="ARPNOREPAIR" Value="1"/>
+      <Property Id="ARPNOMODIFY" Value="1"/>
+      <Upgrade Id="$(var.ProductUpgradeCode)">
+         <UpgradeVersion Minimum="$(var.ProductVersion)" OnlyDetect="yes" Property="NEWERVERSIONDETECTED"/>
+         <UpgradeVersion Minimum="0.0.0" Maximum="$(var.ProductVersion)" IncludeMinimum="yes" IncludeMaximum="no" 
+                         Property="OLDERVERSIONBEINGUPGRADED"/>	  
+      </Upgrade>
+      <Condition Message="A newer version of this software is already installed.">NOT NEWERVERSIONDETECTED</Condition>
+
+      <Directory Id="TARGETDIR" Name="SourceDir">
+         <Directory Id="ProgramFilesFolder">
+            <Directory Id="INSTALLDIR" Name="SdPlayer">
+               <Component Id="ApplicationFiles" Guid="2774770d-7c17-41b3-8b2f-423b4c3228e1">
+                   <File Id="Exec" Source="release/SdPlayer.exe"/>
+                   <File Id="Filetypes" Source="filetypes.txt"/>
+                   <File Id="IniFile" Source="assets/sdplayer.ini"/>
+               </Component>
+            </Directory>
+         </Directory>
+
+         <Directory Id="ProgramMenuFolder">
+            <Directory Id="ProgramMenuSubfolder" Name="SdPlayer">
+               <Component Id="ApplicationShortcuts" Guid="2774770d-7c17-41b3-8b2f-423b4c3228e2">
+                  <Shortcut Id="ApplicationShortcut1" Name="SdPlayer" Description="Music player for square dance tape groups" 
+                            Target="[INSTALLDIR]example.exe" WorkingDirectory="INSTALLDIR"/>
+                  <RegistryValue Root="HKCU" Key="Software\SdPlayer\SdPlayer" 
+                            Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+                  <RemoveFolder Id="ProgramMenuSubfolder" On="uninstall"/>
+               </Component>
+            </Directory>
+         </Directory>
+      </Directory>
+
+      <InstallExecuteSequence>
+         <RemoveExistingProducts After="InstallValidate"/>
+      </InstallExecuteSequence>
+
+      <Feature Id="DefaultFeature" Level="1">
+         <ComponentRef Id="ApplicationFiles"/>
+         <ComponentRef Id="ApplicationShortcuts"/>		 
+      </Feature>
+   </Product>
+</Wix>
