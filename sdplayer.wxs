@@ -26,6 +26,7 @@
                    <File Id="Exec" Source="release/SdPlayer.exe"/>
                    <File Id="Filetypes" Source="filetypes.txt"/>
                    <File Id="IniFile" Source="assets/sdplayer.ini"/>
+                   <File Id="pngs" Source="*.png"/>
                </Component>
             </Directory>
          </Directory>

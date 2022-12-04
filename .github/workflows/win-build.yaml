@@ -48,6 +48,7 @@ jobs:
 
       - name: Build installer
         run: |
+            $env:Path += ";C:/Program Files (x86)/WiX Toolset v3.11/bin"
             candle sdplayer.wxs
             light sdplayer.wixobj
             ls
