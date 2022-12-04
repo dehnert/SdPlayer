@@ -33,7 +33,7 @@ jobs:
 
       - name: Build SdPlayer - qmake
         run: |
-            qmake -config release -platform win32-g++
+            qmake -config release windeployqt -platform win32-g++
             mingw32-make
             ls -R
 

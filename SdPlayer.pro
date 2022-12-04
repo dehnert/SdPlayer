@@ -42,14 +42,11 @@ FORMS    += mainwindow.ui \
 
 # for windows
 win32 {
-  CONFIG += link_prl windeployqt
-
   OTHER_FILES += \
       sdplayer.rc
   RC_FILE += sdplayer.rc
 
   # path from my project to vlc include files
-  #INCLUDEPATH += "D:/a/SdPlayer/vlc-3.0.18/include"
   INCLUDEPATH += "../vlc-3.0.18/sdk/include"
 
   # path to vlc libraries
