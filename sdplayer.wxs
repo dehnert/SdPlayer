@@ -1,10 +1,11 @@
+<!-- Based on template at https://www.codeproject.com/Tips/105638/A-quick-introduction-Create-an-MSI-installer-with -->
 <?xml version="1.0"?>
 <?define ProductVersion = "2.00.3"?>
 <?define ProductUpgradeCode = "91d4a63a-bdcb-4aa3-8d4d-ecaeb7da8e62"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
    <Product Id="*" UpgradeCode="$(var.ProductUpgradeCode)" 
             Name="SdPlayer" Version="$(var.ProductVersion)" Manufacturer="SdPlayer" Language="1033">
-      <Package InstallerVersion="200" Compressed="yes" Comments="Windows Installer Package"/>
+      <Package InstallerVersion="200" Compressed="yes" Platform="x64" Comments="Windows Installer Package"/>
       <Media Id="1" Cabinet="product.cab" EmbedCab="yes"/>
       <Icon Id="ProductIcon" SourceFile="Music.ico"/>
       <Property Id="ARPPRODUCTICON" Value="ProductIcon"/>
@@ -20,13 +21,13 @@
       <Condition Message="A newer version of this software is already installed.">NOT NEWERVERSIONDETECTED</Condition>
 
       <Directory Id="TARGETDIR" Name="SourceDir">
-         <Directory Id="ProgramFilesFolder">
+         <Directory Id="ProgramFiles64Folder">
             <Directory Id="INSTALLDIR" Name="SdPlayer">
-               <Component Id="ApplicationFiles" Guid="2774770d-7c17-41b3-8b2f-423b4c3228e1">
+               <Component Id="ApplicationFiles" Guid="2774770d-7c17-41b3-8b2f-423b4c3228e1" Win64="yes">
                    <File Id="Exec" Source="release/SdPlayer.exe"/>
                    <File Id="Filetypes" Source="filetypes.txt"/>
                    <File Id="IniFile" Source="assets/sdplayer.ini"/>
-                   <File Id="pngs" Source="*.png"/>
+                   <CopyFile Id="pngs" SourceName="*.png"/>
                </Component>
             </Directory>
          </Directory>
