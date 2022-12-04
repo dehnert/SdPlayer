@@ -37,7 +37,7 @@ jobs:
         run: |
             curl --location -o vlc-3.0.18.tar.xz https://get.videolan.org/vlc/3.0.18/vlc-3.0.18.tar.xz
             echo Downloaded
-            gnutar -xvf vlc-3.0.18.tar.xz
+            gnu-tar -xvf vlc-3.0.18.tar.xz
             echo Extracted
             mkdir "C:/Program Files/VideoLAN/VLC/sdk/"
             echo mkdir
