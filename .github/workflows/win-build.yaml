@@ -29,7 +29,8 @@ jobs:
       - name: Install VLC
         timeout-minutes: 2
         run: |
-            curl https://ftp.osuosl.org/pub/videolan/vlc/3.0.18/win64/vlc-3.0.18-win64.7z -o ../vlc.7z
+            cd ..
+            curl https://ftp.osuosl.org/pub/videolan/vlc/3.0.18/win64/vlc-3.0.18-win64.7z -o vlc.7z
             7z x vlc.7z
 
       - name: Install Qt
