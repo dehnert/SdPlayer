@@ -25,20 +25,12 @@ jobs:
         with:
           arch: x64
 
-        # GitHub suggests using choco to install packages
-        # https://docs.github.com/en/actions/using-github-hosted-runners/customizing-github-hosted-runners#installing-software-on-windows-runners
+      # Download and install VLC
       - name: Install VLC
         timeout-minutes: 2
-        run: choco install vlc
-
-      # Install include files
-      # (Decent chance if we're doing this we shouldn't use choco?)
-      - name: Add VLC includes
         run: |
-            cd ..
-            curl --location -o vlc-3.0.18.tar.xz https://get.videolan.org/vlc/3.0.18/vlc-3.0.18.tar.xz
-            7z x vlc-3.0.18.tar.xz
-            tar -xvf vlc-3.0.18.tar
+            curl https://ftp.osuosl.org/pub/videolan/vlc/3.0.18/win64/vlc-3.0.18-win64.7z -o ../vlc.7z
+            7z x vlc.7z
 
       - name: Install Qt
         uses: jurplel/install-qt-action@v3
@@ -62,8 +54,9 @@ jobs:
             echo ..
             ls ..
             echo vlc
-            ls -R "C:/Program Files/VideoLAN/"
-            #echo vlc
+            #ls -R "C:/Program Files/VideoLAN/"
+            echo vlc
+            ls -R ../vlc-3.0.18/
             #ls -R D:/a/SdPlayer/vlc-3.0.18/include
 
       - name: Build SdPlayer - more steps

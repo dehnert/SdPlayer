@@ -50,10 +50,10 @@ win32 {
 
   # path from my project to vlc include files
   #INCLUDEPATH += "D:/a/SdPlayer/vlc-3.0.18/include"
-  INCLUDEPATH += "../vlc-3.0.18/include"
+  INCLUDEPATH += "../vlc-3.0.18/sdk/include"
 
   # path to vlc libraries
-  LIBS += -L"C:/Program Files/VideoLAN/VLC/sdk/lib"
+  LIBS += -L"../vlc-3.0.18/sdk/lib/"
   LIBS += -llibvlc
 }
 
