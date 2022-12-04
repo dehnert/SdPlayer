@@ -66,7 +66,7 @@ jobs:
 
       - name: Build SdPlayer - more steps
         run: |
-            nmake
+            mingw32-make
             ls -R
 
       - name: Add extra assets
