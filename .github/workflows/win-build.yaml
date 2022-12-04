@@ -49,6 +49,12 @@ jobs:
         run: |
             qmake -config release -platform win32-g++
 
+      - name: Save Qt
+        uses: actions/upload-artifact@v3
+        with:
+            name: SdPlayer Qt
+            path: ../Qt/
+
       - name: Save qmake outputs
         uses: actions/upload-artifact@v3
         with:
