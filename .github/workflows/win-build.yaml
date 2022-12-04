@@ -31,6 +31,15 @@ jobs:
         timeout-minutes: 2
         run: choco install vlc
 
+      # Install include files
+      # (Decent chance if we're doing this we shouldn't use choco?)
+      - name: Add VLC includes
+        run: |
+            wget https://get.videolan.org/vlc/3.0.18/vlc-3.0.18.tar.xz
+            tar -xvf vlc-3.0.18.tar.xz
+            mkdir "C:/Program Files/VideoLAN/VLC/sdk/"
+            cp -r vlc-3.0.18/include/ "C:/Program Files/VideoLAN/VLC/sdk/"
+
       - name: Install Qt
         uses: jurplel/install-qt-action@v3
 
@@ -46,7 +55,7 @@ jobs:
 
       - name: ls
         run: |
-            ls -R "C:/Program Files/VideoLAN/VLC/"
+            ls -R "C:/Program Files/VideoLAN/VLC/sdk/"
 
       - name: Build SdPlayer - more steps
         run: |
