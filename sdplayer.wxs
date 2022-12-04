@@ -28,7 +28,10 @@
                    <File Id="Filetypes" Source="filetypes.txt"/>
                    <File Id="IniFile" Source="assets/sdplayer.ini"/>
                    <CopyFile Id="pngs" DestinationProperty="DESTDIR" SourceName="*.png"/>
-                   <CopyFile Id="QtLibs" DestinationProperty="DESTDIR" SourceName="release/Qt5*.dll"/>
+                   <File Id="QtCore" DestinationProperty="DESTDIR" SourceName="release/Qt5Core.dll"/>
+                   <File Id="QtGui" DestinationProperty="DESTDIR" SourceName="release/Qt5Gui.dll"/>
+                   <File Id="QtSvg" DestinationProperty="DESTDIR" SourceName="release/Qt5Svg.dll"/>
+                   <File Id="QtWidgets" DestinationProperty="DESTDIR" SourceName="release/Qt5Widgets.dll"/>
                    <File Id="Vlc" Source="../vlc-3.0.18/libvlc.dll"/>
                </Component>
             </Directory>
