@@ -75,7 +75,7 @@ jobs:
             # -out: File to put output in
             heat dir installdir/ -cg InstallDirComps -dr INSTALLDIR -srd -var var.SrcInstallDir -gg -sfrag -sw5150 -template fragment -out installdir.wxs
             candle -arch x64 sdplayer.wxs
-            candle -arch x64 installdir.wxs
+            candle -arch x64 -dSrcInstallDir=installdir installdir.wxs
             light -o sdplayer.msi sdplayer.wixobj installdir.wixobj
             ls installdir
             cat installdir.wxs
