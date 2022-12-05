@@ -31,6 +31,10 @@ jobs:
         with:
             arch: win64_mingw81
 
+      - name: ls C
+        run: |
+            ls -R C:/
+
       - name: Build SdPlayer
         run: |
             qmake -config release -config windeployqt -platform win32-g++
