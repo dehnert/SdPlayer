@@ -33,7 +33,9 @@ jobs:
 
       - name: ls C
         run: |
-            ls -R C:/
+            env
+            ls "C:/Program Files"
+            ls "C:/Program Files (x86)"
 
       - name: Build SdPlayer
         run: |
