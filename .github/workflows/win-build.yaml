@@ -43,7 +43,7 @@ jobs:
             mingw32-make
             ls -R
             windeployqt --dir installdir release/SdPlayer.exe
-            echo ls -R release
+            echo "ls -R release"
             ls -R release
             ls -R installdir
 
@@ -53,17 +53,25 @@ jobs:
             name: SdPlayer.exe
             path: release/SdPlayer.exe
 
+      - name: Prep installdir
+        run: |
+            cp release/SdPlayer.exe installdir/
+            cp filetypes.txt assets/sdplayer.ini *.png installdir/
+            cp ../vlc-3.0.18/libvlc.dll ../vlc-3.0.18/libvlccore.dll installdir/
+            cp "C:/Program Files/Git/mingw64/bin/libwinpthread-1.dll" "C:/Program Files/Git/mingw64/bin/libstdc++-6.dll" "C:/Program Files/Git/mingw64/bin/libgcc_s_seh-1.dll" installdir/
+
       - name: Build installer
         run: |
             # Path from https://github.com/orgs/community/discussions/27149
             $env:Path += ";C:/Program Files (x86)/WiX Toolset v3.11/bin"
+            heat dir installdir/ -gg -sfrag -template:fragment -out installdir.wxs
             candle -arch x64 sdplayer.wxs
             light sdplayer.wixobj
-            ls
-            ls release
+            ls installdir
+            cat installdir.wxs
 
       - name: Save installer
         uses: actions/upload-artifact@v3
         with:
             name: SdPlayer
-            path: SdPlayer.msi
+            path: SdPlayer.msi installdir.wxs
