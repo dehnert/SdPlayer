@@ -64,9 +64,18 @@ jobs:
         run: |
             # Path from https://github.com/orgs/community/discussions/27149
             $env:Path += ";C:/Program Files (x86)/WiX Toolset v3.11/bin"
-            heat dir installdir/ -gg -sfrag -template:fragment -out installdir.wxs
+            # -cg: ComponentGroup to reference
+            # -dr: Directory to put things under
+            # -srd: Place files directly under INSTALLDIR, not a subdir
+            # -gg: Generate GUIDs now
+            # -sfrag: ??? In https://stackoverflow.com/questions/36756311/include-all-files-in-bin-folder-in-wix-installer
+            # -swHEAT5150: Ignore warnings because 64-bit DLLs can't be checked for self-reg
+            # -template: Make a fragment to include
+            # -out: File to put output in
+            heat dir installdir/ -cg InstallDirComps -dr INSTALLDIR -srd -gg -sfrag -swHEAT5150 -template fragment -out installdir.wxs
             candle -arch x64 sdplayer.wxs
-            light sdplayer.wixobj
+            candle -arch x64 installdir.wxs
+            light sdplayer.wixobj installdir.wixobj
             ls installdir
             cat installdir.wxs
 
