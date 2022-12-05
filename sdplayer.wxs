@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <?define ProductVersion = "2.00.3"?>
 <?define ProductUpgradeCode = "91d4a63a-bdcb-4aa3-8d4d-ecaeb7da8e62"?>
+<?define SrcInstallDir = "installdir"?>
 <!-- Based on template at https://www.codeproject.com/Tips/105638/A-quick-introduction-Create-an-MSI-installer-with -->
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
    <Product Id="*" UpgradeCode="$(var.ProductUpgradeCode)" 
