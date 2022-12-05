@@ -25,16 +25,16 @@
             <Directory Id="INSTALLDIR" Name="SdPlayer">
                <Component Id="ApplicationFiles" Guid="2774770d-7c17-41b3-8b2f-423b4c3228e1" Win64="yes">
                    <File Id="Exec" Source="release/SdPlayer.exe"/>
-                   <!--
                    <File Id="Filetypes" Source="filetypes.txt"/>
                    <File Id="IniFile" Source="assets/sdplayer.ini"/>
+                   <!--
                    <CopyFile Id="pngs" DestinationProperty="DESTDIR" SourceName="*.png"/>
+                   -->
                    <File Id="QtCore" Source="release/Qt5Core.dll"/>
                    <File Id="QtGui" Source="release/Qt5Gui.dll"/>
                    <File Id="QtSvg" Source="release/Qt5Svg.dll"/>
                    <File Id="QtWidgets" Source="release/Qt5Widgets.dll"/>
                    <File Id="Vlc" Source="../vlc-3.0.18/libvlc.dll"/>
-                   -->
                </Component>
             </Directory>
          </Directory>
