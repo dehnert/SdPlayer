@@ -56,9 +56,9 @@ jobs:
       - name: Prep installdir
         run: |
             cp release/SdPlayer.exe installdir/
-            cp filetypes.txt assets/sdplayer.ini *.png installdir/
-            cp ../vlc-3.0.18/libvlc.dll ../vlc-3.0.18/libvlccore.dll installdir/
-            cp "C:/Program Files/Git/mingw64/bin/libwinpthread-1.dll" "C:/Program Files/Git/mingw64/bin/libstdc++-6.dll" "C:/Program Files/Git/mingw64/bin/libgcc_s_seh-1.dll" installdir/
+            Copy-Item filetypes.txt,assets/sdplayer.ini,*.png installdir/
+            Copy-Item ../vlc-3.0.18/libvlc.dll,../vlc-3.0.18/libvlccore.dll installdir/
+            Copy-Item "C:/Program Files/Git/mingw64/bin/libwinpthread-1.dll","C:/Program Files/Git/mingw64/bin/libstdc++-6.dll","C:/Program Files/Git/mingw64/bin/libgcc_s_seh-1.dll" installdir/
 
       - name: Build installer
         run: |
