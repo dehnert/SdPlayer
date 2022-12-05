@@ -35,6 +35,7 @@
                    <File Id="QtSvg" Source="release/Qt5Svg.dll"/>
                    <File Id="QtWidgets" Source="release/Qt5Widgets.dll"/>
                    <File Id="Vlc" Source="../vlc-3.0.18/libvlc.dll"/>
+                   <File Id="VlcCore" Source="../vlc-3.0.18/libvlccore.dll"/>
                </Component>
             </Directory>
          </Directory>
