@@ -42,9 +42,10 @@ jobs:
             qmake -config release -config windeployqt -platform win32-g++
             mingw32-make
             ls -R
-            windeployqt --dir installdir release
+            windeployqt --dir installdir release/SdPlayer.exe
             echo ls -R release
-            ls -R installdir release
+            ls -R release
+            ls -R installdir
 
       - name: Save exe
         uses: actions/upload-artifact@v3
