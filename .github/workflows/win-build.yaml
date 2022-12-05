@@ -42,9 +42,9 @@ jobs:
             qmake -config release -config windeployqt -platform win32-g++
             mingw32-make
             ls -R
-            windeployqt release
+            windeployqt --dir installdir release
             echo ls -R release
-            ls -R release
+            ls -R installdir release
 
       - name: Save exe
         uses: actions/upload-artifact@v3
