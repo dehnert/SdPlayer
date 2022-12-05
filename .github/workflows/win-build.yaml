@@ -64,6 +64,7 @@ jobs:
         run: |
             # Path from https://github.com/orgs/community/discussions/27149
             $env:Path += ";C:/Program Files (x86)/WiX Toolset v3.11/bin"
+            heat
             # -cg: ComponentGroup to reference
             # -dr: Directory to put things under
             # -srd: Place files directly under INSTALLDIR, not a subdir
@@ -72,7 +73,7 @@ jobs:
             # -swHEAT5150: Ignore warnings because 64-bit DLLs can't be checked for self-reg
             # -template: Make a fragment to include
             # -out: File to put output in
-            heat dir installdir/ -cg InstallDirComps -dr INSTALLDIR -srd -gg -sfrag -sw5150 -template fragment -out installdir.wxs
+            heat dir installdir/ -cg InstallDirComps -dr INSTALLDIR -gg -sfrag -sw5150 -template fragment -out installdir.wxs
             candle -arch x64 sdplayer.wxs
             candle -arch x64 installdir.wxs
             light -o sdplayer.msi sdplayer.wixobj installdir.wixobj
