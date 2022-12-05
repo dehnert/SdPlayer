@@ -37,7 +37,7 @@
                    <File Id="Vlc" Source="../vlc-3.0.18/libvlc.dll"/>
                    <File Id="VlcCore" Source="../vlc-3.0.18/libvlccore.dll"/>
                </Component>
-               <Component Id="ApplicationFiles" Guid="2774770d-7c17-41b3-8b2f-423b4c3228e2" Win64="yes">
+               <Component Id="MingwLibs" Guid="2774770d-7c17-41b3-8b2f-423b4c3228e2" Win64="yes">
                    <File Id="MingwPthread" Source="C:\Program Files\Git\mingw64\bin\libwinpthread-1.dll"/>
                    <File Id="MingwStd" Source="C:\Program Files\Git\mingw64\bin\libstdc++-6.dll"/>
                    <File Id="MingwSeh" Source="C:\Program Files\Git\mingw64\bin\libgcc_s_seh-1.dll"/>
@@ -64,6 +64,7 @@
 
       <Feature Id="DefaultFeature" Level="1">
          <ComponentRef Id="ApplicationFiles"/>
+         <ComponentRef Id="MingwLibs"/>
          <ComponentRef Id="ApplicationShortcuts"/>		 
       </Feature>
    </Product>
