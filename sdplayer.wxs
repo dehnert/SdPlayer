@@ -23,25 +23,6 @@
       <Directory Id="TARGETDIR" Name="SourceDir">
          <Directory Id="ProgramFiles64Folder">
             <Directory Id="INSTALLDIR" Name="SdPlayer">
-               <Component Id="ApplicationFiles" Guid="2774770d-7c17-41b3-8b2f-423b4c3228e1" Win64="yes">
-                   <File Id="Exec" Source="release/SdPlayer.exe"/>
-                   <File Id="Filetypes" Source="filetypes.txt"/>
-                   <File Id="IniFile" Source="assets/sdplayer.ini"/>
-                   <!--
-                   <CopyFile Id="pngs" DestinationProperty="DESTDIR" SourceName="*.png"/>
-                   -->
-                   <File Id="QtCore" Source="release/Qt5Core.dll"/>
-                   <File Id="QtGui" Source="release/Qt5Gui.dll"/>
-                   <File Id="QtSvg" Source="release/Qt5Svg.dll"/>
-                   <File Id="QtWidgets" Source="release/Qt5Widgets.dll"/>
-                   <File Id="Vlc" Source="../vlc-3.0.18/libvlc.dll"/>
-                   <File Id="VlcCore" Source="../vlc-3.0.18/libvlccore.dll"/>
-               </Component>
-               <Component Id="MingwLibs" Guid="2774770d-7c17-41b3-8b2f-423b4c3228e2" Win64="yes">
-                   <File Id="MingwPthread" Source="C:\Program Files\Git\mingw64\bin\libwinpthread-1.dll"/>
-                   <File Id="MingwStd" Source="C:\Program Files\Git\mingw64\bin\libstdc++-6.dll"/>
-                   <File Id="MingwSeh" Source="C:\Program Files\Git\mingw64\bin\libgcc_s_seh-1.dll"/>
-               </Component>
             </Directory>
          </Directory>
 
@@ -63,8 +44,7 @@
       </InstallExecuteSequence>
 
       <Feature Id="DefaultFeature" Level="1">
-         <ComponentRef Id="ApplicationFiles"/>
-         <ComponentRef Id="MingwLibs"/>
+         <ComponentGroupRef Id="InstallDirComps"/>
          <ComponentRef Id="ApplicationShortcuts"/>		 
       </Feature>
    </Product>

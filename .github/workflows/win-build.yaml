@@ -75,7 +75,7 @@ jobs:
             heat dir installdir/ -cg InstallDirComps -dr INSTALLDIR -srd -gg -sfrag -sw5150 -template fragment -out installdir.wxs
             candle -arch x64 sdplayer.wxs
             candle -arch x64 installdir.wxs
-            light sdplayer.wixobj installdir.wixobj
+            light -o sdplayer.msi sdplayer.wixobj installdir.wixobj
             ls installdir
             cat installdir.wxs
 
