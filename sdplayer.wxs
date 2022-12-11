@@ -47,5 +47,18 @@
          <ComponentGroupRef Id="InstallDirComps"/>
          <ComponentRef Id="ApplicationShortcuts"/>
       </Feature>
+
+      <!-- Allow running SdPlayer immediately upon install -->
+      <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Launch SdPlayer" />
+      <Property Id="WixShellExecTarget" Value="[INSTALLDIR]SdPlayer.exe" />
+      <CustomAction Id="LaunchApplication" BinaryKey="WixCA" DllEntry="WixShellExec" Impersonate="yes" />
+
+      <UI>
+        <UIRef Id="WixUI_Minimal" />
+        <Publish Dialog="ExitDialog"
+                     Control="Finish"
+                     Event="DoAction"
+                     Value="LaunchApplication">WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 and NOT Installed</Publish>
+      </UI>
    </Product>
 </Wix>
