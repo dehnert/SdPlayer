@@ -2,6 +2,7 @@
 #include "mainwindow.h"
 
 #if defined(_WIN64)
+#include <WinDef.h>
 #include <Winbase.h>
 #endif
 
