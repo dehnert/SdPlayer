@@ -11,12 +11,12 @@ jobs:
     name: Build for MacOS
     # Set the type of machine to run on
     # Qt doesn't currently like 11.0, so we don't use macos-latest
-    runs-on: macos-10.15
+    runs-on: macos-12
 
     steps:
       # Checks out a copy of your repository on the ubuntu-latest machine
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       # Based on https://gist.github.com/ruario/b83c1030790948d66c624aa99203140c
       # to unpack the DMG
@@ -31,7 +31,7 @@ jobs:
             cp -r /tmp/vlc/VLC.app /Applications/VLC.app
 
       - name: Install Qt
-        uses: jurplel/install-qt-action@v2
+        uses: jurplel/install-qt-action@v3
 
       - name: Build SdPlayer
         run: |
@@ -57,7 +57,7 @@ jobs:
         run: macdeployqt SdPlayer.app -dmg
 
       - name: Save DMG
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
             name: SdPlayer
             path: SdPlayer.dmg
