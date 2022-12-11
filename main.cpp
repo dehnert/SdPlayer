@@ -7,7 +7,7 @@ int main(int argc, char *argv[])
     setenv("VLC_PLUGIN_PATH", "/Applications/VLC.app/Contents/MacOS/plugins", 1);
 #endif
 #if defined(_WIN64)
-    setenv("VLC_PLUGIN_PATH", "C:/Program Files/VideoLAN/VLC", 1);
+    SetEnvironmentVariable("VLC_PLUGIN_PATH", "C:/Program Files/VideoLAN/VLC");
 #endif
     QApplication a(argc, argv);
     a.setApplicationName("sdplayer");
