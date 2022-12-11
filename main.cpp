@@ -1,6 +1,10 @@
 #include <QApplication>
 #include "mainwindow.h"
 
+#if defined(_WIN64)
+#include <Winbase.h>
+#endif
+
 int main(int argc, char *argv[])
 {
 #if defined(__APPLE__) && defined(__MACH__) // Apple OSX and iOS (Darwin)
