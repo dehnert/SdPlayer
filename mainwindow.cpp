@@ -103,7 +103,9 @@ MainWindow::MainWindow(QWidget *parent) :
     // create the vlc media framework and two media players (music and tip timer)
     vlcInstance=libvlc_new(0,NULL);
     if (vlcInstance==NULL) {
-        QMessageBox::information(this,"test vlc","Create vlc failed");
+        QString msg("Create vlc failed: ");
+        msg.append(libvlc_errmsg());
+        QMessageBox::information(this, "test vlc", msg);
         exit(1);
     }
     vlcPlayer=libvlc_media_player_new(vlcInstance); // create a media player
