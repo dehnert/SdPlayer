@@ -12,7 +12,6 @@
       <Property Id="ARPHELPLINK" Value="https://www.krubow.com/Downloads/SdPlayer200/sdplayer.html"/>
       <Property Id="ARPURLINFOABOUT" Value="https://www.krubow.com/Downloads.htm#dlsdplayer"/>
       <Property Id="ARPNOREPAIR" Value="1"/>
-      <Property Id="ARPNOMODIFY" Value="1"/>
       <Upgrade Id="$(var.ProductUpgradeCode)">
          <UpgradeVersion Minimum="$(var.ProductVersion)" OnlyDetect="yes" Property="NEWERVERSIONDETECTED"/>
          <UpgradeVersion Minimum="0.0.0" Maximum="$(var.ProductVersion)" IncludeMinimum="yes" IncludeMaximum="no"
