@@ -31,21 +31,11 @@ jobs:
         with:
             arch: win64_mingw81
 
-      - name: ls C
-        run: |
-            env
-            ls "C:/Program Files"
-            ls "C:/Program Files (x86)"
-
       - name: Build SdPlayer
         run: |
             qmake -config release -config windeployqt -platform win32-g++
             mingw32-make
-            ls -R
             windeployqt --dir installdir release/SdPlayer.exe
-            echo "ls -R release"
-            ls -R release
-            ls -R installdir
 
       - name: Save exe
         uses: actions/upload-artifact@v3
@@ -77,14 +67,10 @@ jobs:
             candle -arch x64 sdplayer.wxs
             candle -arch x64 -dSrcInstallDir=installdir installdir.wxs
             light -o SdPlayer.msi sdplayer.wixobj installdir.wixobj
-            ls installdir
-            ls .
-            cat installdir.wxs
 
       - name: Save installer
         uses: actions/upload-artifact@v3
         with:
-            name: SdPlayer
+            name: SdPlayer Windows installer
             path: |
                 SdPlayer.msi
-                installdir.wxs
